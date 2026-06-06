@@ -48,6 +48,7 @@
     </button>
 
     <nav id="primaryNav">
+      <button class="nav-close" id="navClose" aria-label="Navigation schließen">✕</button>
       <ul class="nav-links">
         <li><a href="#work">Portfolio</a></li>
         <li><a href="#services">Leistungen</a></li>
@@ -72,11 +73,9 @@
       <div class="hero-split">
         <div class="hero-left">
           <h1 class="hero-headline">
-            <span class="word"><span>UGC,</span></span>
-            <span class="word"><span>das eure</span></span><br />
+            <span class="word"><span>UGC, das eure</span></span><br />
             <span class="word"><span><em>Zielgruppe</em></span></span><br />
-            <span class="word"><span>wirklich</span></span>
-            <span class="word"><span><span class="accent">trifft.</span></span></span>
+            <span class="word"><span>wirklich <span class="accent">trifft.</span></span></span>
           </h1>
 
           <div class="hero-bottom">
@@ -104,6 +103,8 @@
               alt="David Girnstein"
               loading="eager"
             />
+            <!-- Grüner Balken — liegt über dem Bild und schneidet es unten ab -->
+            <div class="portrait-bar" aria-hidden="true"></div>
           </div>
         </div>
       </div>
@@ -146,14 +147,6 @@
         <p class="title-aside reveal" data-delay="1">
           Eine Auswahl aktueller UGC-Spots. Klick&nbsp;= Play. Mehr Cases auf Anfrage.
         </p>
-      </div>
-
-      <!-- Filter chips -->
-      <div class="work-filter reveal" data-delay="1">
-        <button class="chip is-active" data-filter="all">Alle</button>
-        <button class="chip" data-filter="ugc">UGC · David</button>
-        <button class="chip ki-feature" data-filter="avatar">KI-Avatar</button>
-        <button class="chip" data-filter="hook">Hook-Tests</button>
       </div>
 
       <div class="work-grid" id="workGrid">
@@ -290,39 +283,10 @@
 
       </div>
 
-      <!-- Stats strip -->
-      <div class="stats">
-        <!-- KI OFF stats -->
-        <div class="stat reveal ki-feature-alt">
-          <div class="num">4</div>
-          <div class="label">Videos im Portfolio</div>
-        </div>
-        <!-- KI ON stats -->
-        <div class="stat reveal ki-feature">
-          <div class="num">2 <span style="color: var(--lime);">×</span></div>
-          <div class="label">Modi: Real & Avatar</div>
-        </div>
-
-        <div class="stat reveal" data-delay="1">
-          <div class="num">9:16</div>
-          <div class="label">Native Format</div>
-        </div>
-        <div class="stat reveal" data-delay="2">
-          <div class="num">24h</div>
-          <div class="label">Antwortzeit</div>
-        </div>
-
-        <!-- KI OFF stats -->
-        <div class="stat reveal ki-feature-alt" data-delay="3">
-          <div class="num">Hi&#8209;Res</div>
-          <div class="label">Qualität</div>
-        </div>
-        <!-- KI ON stats -->
-        <div class="stat reveal ki-feature" data-delay="3">
-          <div class="num">∞</div>
-          <div class="label">Avatar-Varianten</div>
-        </div>
-      </div>
+      <!-- Stats: aktuell ausgeblendet — erst wieder aktivieren wenn sinnvolle Werte vorhanden -->
+      <!--
+      <div class="stats">...</div>
+      -->
     </div>
   </section>
 
@@ -391,7 +355,7 @@
       <div class="cta reveal">
         <div class="cta-content">
           <span class="eyebrow" style="margin-bottom: 1.5rem; display: inline-flex; color: var(--lime);">05 / Kontakt</span>
-          <h2>Lasst uns euer<br/>nächstes <span class="accent">Creative</span> bauen.</h2>
+          <h2>Lasst uns euer<br/>nächstes <span class="accent accent--box">Creative</span> bauen.</h2>
           <p style="font-size: var(--fs-lg); max-width: 56ch; opacity: 0.85; margin-top: 1rem;">
             Brief, lose Idee oder konkrete Deadline? Schreibt mir. Ich melde mich innerhalb von 24h.
           </p>

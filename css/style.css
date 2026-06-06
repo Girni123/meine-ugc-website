@@ -182,15 +182,43 @@ h3 { font-size: var(--fs-h3); font-weight: 800; letter-spacing: -0.02em; line-he
 .nav-open .nav-toggle span::before { top: 0; transform: rotate(45deg); }
 .nav-open .nav-toggle span::after  { top: 0; transform: rotate(-45deg); }
 
+/* X-Button zum Schließen der mobilen Navigation */
+.nav-close {
+  display: none;
+  position: absolute;
+  top: 1.25rem;
+  right: var(--pad-x);
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  border: 1.5px solid var(--line-strong);
+  font-size: 1.1rem;
+  color: var(--ink);
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  z-index: 95;
+  background: var(--bg);
+  flex-shrink: 0;
+}
+
 @media (max-width: 860px) {
+  /* Hamburger ganz rechts — nav nimmt keinen Flex-Platz */
+  #primaryNav {
+    flex: 0 0 0;
+    min-width: 0;
+    overflow: visible;
+  }
   .nav-toggle { display: inline-flex; }
+
+  .nav-close { display: flex; }
+
   .nav-links {
     position: fixed;
     inset: 0;
     background: var(--bg);
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
+    align-items: flex-end;          /* rechts ausgerichtet */
     padding: 0 var(--pad-x);
     gap: 1rem;
     opacity: 0;
@@ -199,7 +227,13 @@ h3 { font-size: var(--fs-h3); font-weight: 800; letter-spacing: -0.02em; line-he
     transition: opacity var(--dur), transform var(--dur);
     z-index: 90;
   }
-  .nav-links a { font-size: clamp(1.75rem, 6vw, 2.5rem); font-weight: 800; font-family: "Inter Tight", sans-serif; letter-spacing: -0.02em; }
+  .nav-links a {
+    font-size: clamp(1.75rem, 6vw, 2.5rem);
+    font-weight: 800;
+    font-family: "Inter Tight", sans-serif;
+    letter-spacing: -0.02em;
+    text-align: right;
+  }
   .nav-open .nav-links { opacity: 1; pointer-events: auto; transform: translateY(0); }
   .nav-cta-mobile { margin-top: 1rem; }
 }
@@ -274,21 +308,25 @@ h3 { font-size: var(--fs-h3); font-weight: 800; letter-spacing: -0.02em; line-he
 /* Hero split: text left, portrait right */
 .hero-split {
   display: grid;
-  grid-template-columns: 58% 42%;
-  align-items: center;
-  gap: clamp(2rem, 4vw, 4rem);
-  min-height: clamp(50vh, 70vh, 80vh);
+  grid-template-columns: 65% 35%;
+  align-items: stretch;       /* both columns fill full height */
+  gap: 0;
+  min-height: clamp(55vh, 72vh, 82vh);
 }
 .hero-left {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding-bottom: clamp(3rem, 5vh, 5rem); /* breathing room above lime bar */
+  z-index: 2;
 }
 .hero-right {
   display: flex;
-  align-items: flex-end;
+  align-items: flex-end;     /* portrait sits at the bottom */
   justify-content: center;
   position: relative;
+  /* portrait renders on top of text if they overlap at narrow widths */
+  z-index: 3;
 }
 .hero-portrait {
   position: relative;
@@ -296,31 +334,44 @@ h3 { font-size: var(--fs-h3); font-weight: 800; letter-spacing: -0.02em; line-he
   align-items: flex-end;
   justify-content: center;
   width: 100%;
+  height: 100%;
 }
 /* Soft lime glow behind portrait */
 .hero-portrait::before {
   content: "";
   position: absolute;
-  width: 65%;
+  width: 80%;
   aspect-ratio: 1;
   background: var(--lime);
   border-radius: 50%;
-  bottom: -10px;
+  bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
-  filter: blur(70px);
-  opacity: 0.38;
+  filter: blur(80px);
+  opacity: 0.32;
   z-index: 0;
   pointer-events: none;
 }
 .hero-portrait img {
   position: relative;
   z-index: 1;
-  max-height: clamp(360px, 62vh, 650px);
+  max-height: clamp(380px, 68vh, 680px);
   width: auto;
   max-width: 100%;
   object-fit: contain;
+  object-position: bottom center;
   display: block;
+}
+/* Grüner Balken — liegt über dem Bild (z-index: 5 > img z-index: 1) */
+.portrait-bar {
+  position: absolute;
+  bottom: 0;
+  left: -300%;
+  right: -300%;
+  height: 20px;
+  background: var(--lime);
+  z-index: 5;
+  pointer-events: none;
 }
 
 .hero-headline {
@@ -376,10 +427,19 @@ h3 { font-size: var(--fs-h3); font-weight: 800; letter-spacing: -0.02em; line-he
 
 @media (max-width: 860px) {
   .hero-split {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
     min-height: auto;
+    align-items: end;
+    gap: 0.75rem;
   }
-  .hero-right { display: none; } /* portrait hidden on mobile — focus on CTA */
+  .hero-left { padding-bottom: clamp(2rem, 4vh, 3rem); }
+  .hero-right { display: flex; } /* portrait sichtbar auf Mobile */
+  .hero-portrait img { max-height: clamp(200px, 38vh, 320px); }
+  .portrait-bar { height: 14px; }
+}
+@media (max-width: 480px) {
+  .hero-split { grid-template-columns: 55% 45%; }
+  .hero-portrait img { max-height: clamp(160px, 32vh, 260px); }
 }
 
 /* ---------- 8. Marquee ---------- */
@@ -427,7 +487,7 @@ h3 { font-size: var(--fs-h3); font-weight: 800; letter-spacing: -0.02em; line-he
   margin-bottom: clamp(3rem, 6vw, 5rem);
   align-items: end;
 }
-.section-title .title-text { max-width: 14ch; }
+.section-title .title-text { max-width: 22ch; }
 .section-title .title-aside {
   font-size: var(--fs-lg);
   color: var(--ink-2);
@@ -574,11 +634,11 @@ h3 { font-size: var(--fs-h3); font-weight: 800; letter-spacing: -0.02em; line-he
 
 .work-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: clamp(1rem, 1.5vw, 1.25rem);
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(0.75rem, 1.2vw, 1.25rem);
 }
-@media (max-width: 980px) { .work-grid { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 580px) { .work-grid { grid-template-columns: 1fr; } }
+@media (max-width: 1000px) { .work-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px)  { .work-grid { grid-template-columns: 1fr; } }
 
 .work-card {
   position: relative;
@@ -758,14 +818,16 @@ h3 { font-size: var(--fs-h3); font-weight: 800; letter-spacing: -0.02em; line-he
 }
 .cta-content { position: relative; z-index: 2; max-width: 980px; }
 .cta h2 { color: var(--bg); margin-bottom: 1.5rem; }
-/* FIX: text color = var(--bg) so it's always visible on dark background;
-   lime gradient provides the underline-highlight effect */
-.cta h2 .accent {
-  background: linear-gradient(180deg, transparent 0 55%, var(--lime) 55% 100%);
-  padding: 0 0.08em 0.04em;
-  color: var(--bg);
+/* Normale accent-Klasse (hero headline) */
+/* CTA-spezifisch: volle Lime-Box, schwarzer Text — immer lesbar */
+.cta h2 .accent--box {
+  background: var(--lime);
+  color: var(--ink);
+  padding: 0.04em 0.18em 0.06em;
+  border-radius: 6px;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
+  display: inline;
 }
 .cta-row {
   display: flex;
@@ -932,7 +994,31 @@ h3 { font-size: var(--fs-h3); font-weight: 800; letter-spacing: -0.02em; line-he
 }
 .divider { height: 1px; background: var(--line); }
 
-/* ---------- 20. KI-Avatar Feature Flag ----------
+/* ---------- 20. Freisteller-Galerie (about.html) ---------- */
+.freisteller-section { background: var(--ink); }
+.freisteller-grid {
+  display: flex;
+  gap: clamp(1rem, 2vw, 2.5rem);
+  align-items: flex-end;    /* Füße auf gleicher Höhe */
+  overflow-x: auto;
+  padding-bottom: 0;
+  scrollbar-width: none;
+}
+.freisteller-grid::-webkit-scrollbar { display: none; }
+.freisteller-item {
+  flex: 0 0 auto;
+}
+.freisteller-item img {
+  height: clamp(280px, 45vh, 520px);
+  width: auto;
+  max-width: none;
+  object-fit: contain;
+  object-position: bottom center;
+  display: block;
+  /* Kein Grayscale-Filter — Freistellerbilder farbenfroh zeigen */
+}
+
+/* ---------- 22. KI-Avatar Feature Flag ----------
    Gesteuert über ENABLE_KI_AVATAR in index.html.
    html.ki-off  = KI deaktiviert (Standard)
    html.ki-on   = KI aktiviert
@@ -944,10 +1030,9 @@ html.ki-off .ki-feature { display: none; }
 /* Wenn KI an: alle ki-feature-alt Elemente verstecken */
 html.ki-on .ki-feature-alt { display: none; }
 
-/* Wenn KI aus: Service-Grid auf 1 Spalte (nur 1 Karte sichtbar) */
+/* Wenn KI aus: Service-Grid auf 1 Spalte, volle Breite */
 html.ki-off .services-grid {
   grid-template-columns: 1fr;
-  max-width: 640px;
 }
 
 /* Wenn KI aus: Stats-Grid auf 4 Spalten halten (doppelte Einträge durch Flag geregelt) */

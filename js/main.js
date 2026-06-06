@@ -34,6 +34,16 @@
         document.documentElement.style.overflow = "";
       });
     });
+
+    // close on X button
+    const navClose = document.getElementById("navClose");
+    if (navClose) {
+      navClose.addEventListener("click", () => {
+        body.classList.remove("nav-open");
+        navToggle.setAttribute("aria-expanded", "false");
+        document.documentElement.style.overflow = "";
+      });
+    }
   }
 
   /* ---------- 3. Reveal on scroll (IntersectionObserver) ---------- */

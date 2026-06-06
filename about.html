@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Über mich — David Girnstein</title>
-  <meta name="description" content="Wer ich bin, woran ich glaube, und warum ich UGC mit der Brille eines Marketers produziere." />
+  <title>Über mich — David Girnstein UGC Studio</title>
+  <meta name="description" content="Wer ich bin, woher ich komme und warum ich UGC mit der Brille eines Marketers produziere." />
   <meta name="theme-color" content="#F4F0E6" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -26,10 +26,11 @@
     <button class="nav-toggle" id="navToggle" aria-label="Navigation öffnen" aria-expanded="false">
       <span></span>
     </button>
-    <nav>
+    <nav id="primaryNav">
+      <button class="nav-close" id="navClose" aria-label="Navigation schließen">✕</button>
       <ul class="nav-links">
-        <li><a href="index.html#services">Leistungen</a></li>
         <li><a href="index.html#work">Portfolio</a></li>
+        <li><a href="index.html#services">Leistungen</a></li>
         <li><a href="about.html">Über mich</a></li>
         <li><a href="process.html">Prozess</a></li>
         <li class="nav-cta-mobile"><a class="btn btn-primary" href="index.html#contact">Projekt anfragen <span class="arrow">→</span></a></li>
@@ -42,29 +43,61 @@
     <div class="container">
       <span class="eyebrow">Über mich</span>
       <h1>Creator mit<br/><em style="font-weight: 300; font-family: 'Inter Tight', serif;">Marketer-Mindset.</em></h1>
-      <p class="prose" style="max-width: 56ch;">
+      <p class="prose" style="max-width: 52ch;">
         Ich bin David — ich produziere UGC nicht, weil ich gerne vor der Kamera stehe (das auch), sondern weil ich verstehe, was ein Spot leisten muss, damit jemand stehen bleibt, schaut und konvertiert.
       </p>
     </div>
   </section>
 
-  <!-- ============== INTRO PHOTO + COPY ============== -->
-  <section class="section">
+
+  <!-- ============== FREISTELLER GALERIE ============== -->
+  <!--
+    Weitere Freisteller-Bilder einfach als <img>-Tags ergänzen.
+    Empfohlene Dateinamen: David_freisteller_02.png, _03.png usw.
+    Alle Bilder im Ordner /assets/images/ ablegen.
+  -->
+  <section class="section freisteller-section">
+    <div class="container">
+      <div class="freisteller-grid">
+
+        <div class="freisteller-item reveal">
+          <img src="assets/images/David_freisteller_01.png" alt="David Girnstein" loading="lazy" />
+        </div>
+
+        <!-- Platzhalter für weitere Bilder — einfach kommentieren wenn vorhanden -->
+        <!--
+        <div class="freisteller-item reveal" data-delay="1">
+          <img src="assets/images/David_freisteller_02.png" alt="David Girnstein" loading="lazy" />
+        </div>
+        <div class="freisteller-item reveal" data-delay="2">
+          <img src="assets/images/David_freisteller_03.png" alt="David Girnstein" loading="lazy" />
+        </div>
+        -->
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============== INTRO COPY ============== -->
+  <section class="section" style="padding-top: 0;">
     <div class="container">
       <div class="about-teaser">
-        <div class="imgwrap reveal">
-          <img src="Beispielbilder/IMG_8526.jpeg" alt="David Girnstein" loading="lazy" />
-        </div>
-        <div class="copy reveal" data-delay="1">
-          <h2>Kurz zu mir.</h2>
+        <div class="copy reveal">
+          <span class="eyebrow" style="margin-bottom: 1.25rem; display: inline-flex;">Kurz zu mir</span>
+          <h2>Creator, der&nbsp;&amp;<br/>denkt wie&nbsp;ein Marketer.</h2>
           <div class="prose" style="margin-top: 1.5rem;">
-            <p>Ich bewege mich seit Jahren zwischen Performance-Marketing, Creative-Strategie und Front-of-Camera. Heißt: Ich baue keine UGC-Spots als „Content", sondern als <strong>Performance-Werkzeug</strong>.</p>
-            <p>Was bei mir auf dem Tisch liegt: Hooks, die nicht müde aussehen. CTAs, die nicht aufdringlich klingen. Und eine Bandbreite an Personas — von mir selbst über KI-gestützte Avatar-Swaps — damit ihr euer Creative auf eure Zielgruppe zuschneiden könnt, ohne fünf neue Shoots zu buchen.</p>
+            <p>Bevor ich selbst vor die Kamera gegangen bin, habe ich über anderthalb Jahre Videos für Social-Media-Werbung geschnitten — für Agenturen, verschiedenste Kunden und Produkte. Ich weiß, welche Hooks funktionieren, was einen Scroll-Stopper ausmacht und wie man Content für Conversion baut.</p>
+            <p>Heute bringe ich das, was ich damals geschnitten habe, selbst vor die Kamera.</p>
           </div>
+        </div>
+        <div class="imgwrap reveal" data-delay="2">
+          <img src="Beispielbilder/Balenciaga-10.jpg" alt="David Girnstein" loading="lazy" />
         </div>
       </div>
     </div>
   </section>
+
 
   <!-- ============== PRINCIPLES ============== -->
   <section class="section" style="background: var(--bg-2);">
@@ -75,34 +108,35 @@
           <h2>Drei Prinzipien.</h2>
         </div>
         <p class="title-aside reveal" data-delay="1">
-          Diese drei Sätze leiten alles, was ich für Marken produziere — egal ob ich vor der Kamera stehe oder einen Avatar drüberlege.
+          Diese drei Sätze leiten alles, was ich für Marken produziere.
         </p>
       </div>
 
-      <div class="services-grid">
+      <div class="services-grid" style="grid-template-columns: repeat(3, 1fr);">
         <article class="service-card reveal">
           <div class="service-art" aria-hidden="true"></div>
           <span class="service-tag">01</span>
           <h3>Authentisch<br/>schlägt poliert.</h3>
-          <p>Ein Spot, der wie ein Spot aussieht, hat schon verloren. Ich suche das Echte — auch beim Avatar-Swap bleibt das Original-Take die Seele.</p>
+          <p>Ein Spot, der wie ein Spot aussieht, hat schon verloren. Ich suche das Echte — ungeschliffene Energie ist das, was stoppt.</p>
         </article>
 
         <article class="service-card reveal" data-delay="1">
           <div class="service-art" aria-hidden="true"></div>
           <span class="service-tag">02</span>
           <h3>Hook first.<br/>Immer.</h3>
-          <p>Wenn die ersten 1.5 Sekunden nicht stimmen, ist alles danach egal. Ich teste mehrere Hooks pro Skript — bevor das fertige Material euch erreicht.</p>
+          <p>Wenn die ersten 1,5 Sekunden nicht stimmen, ist alles danach egal. Ich teste mehrere Hooks pro Skript — bevor das Material euch erreicht.</p>
         </article>
 
         <article class="service-card is-featured reveal" data-delay="2">
           <div class="service-art" aria-hidden="true"></div>
           <span class="service-tag">03</span>
-          <h3>Varianten als<br/>Werkzeug.</h3>
-          <p>Ein Take, viele Personas, viele Hooks. Wer A/B-testet, lernt schneller — und lernt günstiger. Genau dafür ist Avatar-Swap gemacht.</p>
+          <h3>Denken wie<br/>ein Marketer.</h3>
+          <p>Content ohne Strategie ist Lärm. Ich denke in Retention-Kurven, CTAs und Plattformlogik — und baue Spots, die nicht nur gut aussehen, sondern konvertieren.</p>
         </article>
       </div>
     </div>
   </section>
+
 
   <!-- ============== TIMELINE / SHORT CV ============== -->
   <section class="section">
@@ -113,42 +147,64 @@
           <h2>Wie ich<br/>hierher kam.</h2>
         </div>
         <p class="title-aside reveal" data-delay="1">
-          Eine Kurzfassung. Die volle Version gibt's auf <a href="https://girnstein.com" style="text-decoration: underline; text-decoration-color: var(--lime); text-underline-offset: 4px;">girnstein.com</a>.
+          Das, was aus meinem Lebenslauf relevant ist — und warum.
         </p>
       </div>
 
       <div class="timeline">
+
         <div class="timeline-item reveal">
-          <div class="when">2026 →</div>
+          <div class="when">heute</div>
           <div>
-            <h3>UGC Studio (heute)</h3>
-            <p>Eigenes Studio. UGC-Content für D2C, SaaS und Lifestyle-Brands. Two-mode Service: David live + KI-Avatar-Swap.</p>
+            <h3>UGC Creator</h3>
+            <p>Alles zusammengebracht — Performance-Wissen, visuelles Gespür und Kamerakompetenz — und in echten UGC-Content umgewandelt, der für Conversion gebaut ist.</p>
           </div>
         </div>
+
         <div class="timeline-item reveal" data-delay="1">
-          <div class="when">2024 — 2026</div>
+          <div class="when">aktuell</div>
           <div>
-            <h3>Performance Creative</h3>
-            <p>Konzeption &amp; Produktion von Performance Creatives für Meta &amp; TikTok. Fokus: Hook-Tests &amp; iterative Variant-Pipelines.</p>
+            <h3>Brand & Product Management — REWE Group</h3>
+            <p>Produktmanagement für eine der größten deutschen Lebensmittelketten. Ich erlebe täglich, wie echte Marken intern denken, entscheiden und kommunizieren — direkte Perspektive auf das, was Marken wirklich brauchen.</p>
           </div>
         </div>
+
+        <div class="timeline-item reveal" data-delay="1">
+          <div class="when">~1 Jahr</div>
+          <div>
+            <h3>Post-Produktion — WDR</h3>
+            <p>Ressourcen und Personal im Bereich Post-Produktion für einen der größten deutschen TV-Sender koordiniert. Professionelle Einblicke in Medienprozesse und wie Content in großem Maßstab produziert und verwaltet wird.</p>
+          </div>
+        </div>
+
         <div class="timeline-item reveal" data-delay="2">
-          <div class="when">2022 — 2024</div>
+          <div class="when">5 Monate</div>
           <div>
-            <h3>Creator &amp; Brand Building</h3>
-            <p>Aufbau einer eigenen Personal Brand. Lernkurve: Wie man im Feed wirklich auffällt — nicht nur wie man „postet".</p>
+            <h3>Projektleiter & Producer — Fashionshow</h3>
+            <p>Eine Fashionshow mit 450 Gästen, €10.000 Budget und einem 68-köpfigen Team produziert — inklusive RTL TV-Beitrag. Vollständige P&L-Verantwortung, Casting, Location, Show-Regie. Geliefert, on budget, on time.</p>
           </div>
         </div>
+
         <div class="timeline-item reveal" data-delay="3">
-          <div class="when">davor</div>
+          <div class="when">~1,5 Jahre</div>
           <div>
-            <h3>Marketing &amp; Strategy</h3>
-            <p>Bis hier hin: Klassisches Marketing, Brand-Strategie, Content-Operations. Die Brille, mit der ich heute UGC anfasse.</p>
+            <h3>Graphic Designer — Muydozo GmbH</h3>
+            <p>In einer Design-Agentur visuelles Denken geschärft: Was sieht professionell aus — und was nicht. Was zieht Blicke an, was nicht. Die ästhetische Basis, auf der heute meine Videos stehen.</p>
           </div>
         </div>
+
+        <div class="timeline-item reveal" data-delay="3">
+          <div class="when">3 Jahre</div>
+          <div>
+            <h3>Studium Mediendesign & Management — HS Fresenius Köln</h3>
+            <p>Mediendesign trifft Markenmanagement. Bachelorarbeit über die Verbindung von physischer Mode und digitalen Medien — mit Auszeichnung abgeschlossen (Abschlussnote 1,5, Bachelorarbeit 1,0). Das theoretische Fundament für das, was ich praktisch mache.</p>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
+
 
   <!-- ============== CTA ============== -->
   <section id="contact" class="section">
@@ -156,18 +212,19 @@
       <div class="cta reveal">
         <div class="cta-content">
           <span class="eyebrow" style="margin-bottom: 1.5rem; display: inline-flex; color: var(--lime);">Sag Hi</span>
-          <h2>Bereit für<br/>dein <span class="accent">Creative</span>?</h2>
+          <h2>Bereit für<br/>euer <span class="accent accent--box">Creative</span>?</h2>
           <p style="font-size: var(--fs-lg); max-width: 56ch; opacity: 0.85; margin-top: 1rem;">
-            Melde dich mit einem kurzen Brief, einer losen Idee oder einer harten Deadline. Ich antworte innerhalb von 24h.
+            Brief, lose Idee oder konkrete Deadline — schreibt mir. Ich antworte innerhalb von 24h.
           </p>
           <div class="cta-row">
-            <a class="btn btn-primary" href="mailto:hello@girnstein.studio?subject=UGC%20Anfrage">E-Mail schreiben <span class="arrow">→</span></a>
-            <a class="btn btn-ghost" style="color: var(--bg); border-color: rgba(255,255,255,0.4);" href="https://cal.com/davidgirnstein" target="_blank" rel="noopener">Call buchen</a>
+            <a class="btn btn-primary" href="mailto:ugc@girnstein.studio?subject=UGC%20Anfrage">E-Mail schreiben <span class="arrow">→</span></a>
+            <a class="btn btn-ghost" style="color: var(--bg); border-color: rgba(255,255,255,0.4);" href="https://instagram.com/david_girnstein" target="_blank" rel="noopener">Instagram</a>
           </div>
         </div>
       </div>
     </div>
   </section>
+
 
   <!-- ============== FOOTER ============== -->
   <footer class="site-footer">
@@ -184,6 +241,7 @@
           <a href="index.html">Home</a>
           <a href="about.html">Über mich</a>
           <a href="process.html">Prozess</a>
+          <a href="impressum.html">Impressum</a>
         </div>
       </div>
       <div class="footer-mega" aria-hidden="true">
@@ -192,8 +250,9 @@
       <div class="footer-bottom">
         <span class="mono">made with care · 2026</span>
         <div class="footer-links">
-          <a href="https://girnstein.com" target="_blank" rel="noopener">girnstein.com</a>
-          <a href="mailto:hello@girnstein.studio">hello@girnstein.studio</a>
+          <a href="https://girnstein.studio" target="_blank" rel="noopener">girnstein.studio</a>
+          <a href="mailto:ugc@girnstein.studio">ugc@girnstein.studio</a>
+          <a href="impressum.html">Impressum</a>
         </div>
       </div>
     </div>
