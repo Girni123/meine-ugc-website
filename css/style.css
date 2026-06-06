@@ -182,35 +182,42 @@ h3 { font-size: var(--fs-h3); font-weight: 800; letter-spacing: -0.02em; line-he
 .nav-open .nav-toggle span::before { top: 0; transform: rotate(45deg); }
 .nav-open .nav-toggle span::after  { top: 0; transform: rotate(-45deg); }
 
-/* X-Button zum Schließen der mobilen Navigation */
+/* X-Button — gleiche Basis-Styles wie Hamburger, immer unsichtbar auf Desktop */
 .nav-close {
-  display: none;
-  position: absolute;
-  top: 1.25rem;
-  right: var(--pad-x);
+  display: none;           /* Desktop: nie sichtbar */
   width: 44px; height: 44px;
-  border-radius: 50%;
-  border: 1.5px solid var(--line-strong);
-  font-size: 1.1rem;
-  color: var(--ink);
-  cursor: pointer;
   align-items: center;
   justify-content: center;
-  z-index: 95;
-  background: var(--bg);
+  border-radius: var(--r-pill);
+  border: 1px solid var(--line-strong);
+  font-size: 1rem;
+  color: var(--ink);
+  cursor: pointer;
+  background: none;
   flex-shrink: 0;
+  z-index: 100;
 }
 
 @media (max-width: 860px) {
-  /* Hamburger ganz rechts — nav nimmt keinen Flex-Platz */
+  /* #primaryNav aus dem Flex-Flow nehmen → Hamburger rutscht nach rechts */
   #primaryNav {
-    flex: 0 0 0;
-    min-width: 0;
+    position: absolute;
+    left: -9999px;   /* aus der Sicht, aber fixed-children bleiben auf viewport */
+    width: 0;
+    height: 0;
     overflow: visible;
   }
+
   .nav-toggle { display: inline-flex; }
 
-  .nav-close { display: flex; }
+  /* X-Button: standardmäßig versteckt, erscheint wenn Nav offen */
+  .nav-close { display: none; }
+  .nav-open .nav-close {
+    display: inline-flex;
+    /* Position wird vom Header-Flex übernommen */
+  }
+  /* Hamburger verstecken wenn Nav offen — X ersetzt ihn */
+  .nav-open .nav-toggle { display: none; }
 
   .nav-links {
     position: fixed;
@@ -218,7 +225,7 @@ h3 { font-size: var(--fs-h3); font-weight: 800; letter-spacing: -0.02em; line-he
     background: var(--bg);
     flex-direction: column;
     justify-content: center;
-    align-items: flex-end;          /* rechts ausgerichtet */
+    align-items: flex-end;
     padding: 0 var(--pad-x);
     gap: 1rem;
     opacity: 0;
@@ -362,12 +369,12 @@ h3 { font-size: var(--fs-h3); font-weight: 800; letter-spacing: -0.02em; line-he
   object-position: bottom center;
   display: block;
 }
-/* Grüner Balken — liegt über dem Bild (z-index: 5 > img z-index: 1) */
+/* Grüner Balken — NUR so breit wie das Portrait-Element selbst */
 .portrait-bar {
   position: absolute;
   bottom: 0;
-  left: -300%;
-  right: -300%;
+  left: 0;
+  right: 0;
   height: 20px;
   background: var(--lime);
   z-index: 5;
@@ -375,7 +382,9 @@ h3 { font-size: var(--fs-h3); font-weight: 800; letter-spacing: -0.02em; line-he
 }
 
 .hero-headline {
-  font-size: var(--fs-display);
+  /* Eigene Größe statt --fs-display (war 11vw = viel zu groß für 3 Zeilen).
+     5.5vw bei 1440px = 79px → max 6rem = 96px → passt in beide Spalten. */
+  font-size: clamp(1.75rem, 5.5vw, 6rem);
   margin-bottom: clamp(1.25rem, 2.5vw, 2rem);
 }
 .hero-headline .word {
@@ -427,19 +436,19 @@ h3 { font-size: var(--fs-h3); font-weight: 800; letter-spacing: -0.02em; line-he
 
 @media (max-width: 860px) {
   .hero-split {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 60% 40%;  /* mehr Platz für Text */
     min-height: auto;
     align-items: end;
-    gap: 0.75rem;
+    gap: 0;
   }
   .hero-left { padding-bottom: clamp(2rem, 4vh, 3rem); }
-  .hero-right { display: flex; } /* portrait sichtbar auf Mobile */
-  .hero-portrait img { max-height: clamp(200px, 38vh, 320px); }
+  .hero-right { display: flex; }
+  .hero-portrait img { max-height: clamp(180px, 38vh, 300px); }
   .portrait-bar { height: 14px; }
 }
-@media (max-width: 480px) {
-  .hero-split { grid-template-columns: 55% 45%; }
-  .hero-portrait img { max-height: clamp(160px, 32vh, 260px); }
+@media (max-width: 400px) {
+  .hero-split { grid-template-columns: 62% 38%; }
+  .hero-portrait img { max-height: clamp(140px, 30vh, 220px); }
 }
 
 /* ---------- 8. Marquee ---------- */
@@ -823,8 +832,8 @@ h3 { font-size: var(--fs-h3); font-weight: 800; letter-spacing: -0.02em; line-he
 .cta h2 .accent--box {
   background: var(--lime);
   color: var(--ink);
-  padding: 0.04em 0.18em 0.06em;
-  border-radius: 6px;
+  padding: 0.02em 0.1em 0.04em;   /* kompakter, kein Text-Überlapp */
+  border-radius: 4px;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
   display: inline;
