@@ -4,12 +4,12 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>David Girnstein — UGC Studio</title>
-  <meta name="description" content="UGC Content, der eure Zielgruppe wirklich trifft. Authentisch von mir gedreht — oder mit KI-Avatar in unendlichen Varianten." />
+  <meta name="description" content="Authentischer UGC-Content, der eure Zielgruppe wirklich trifft. Von David Girnstein — hook-optimiert und performance-ready." />
   <meta name="theme-color" content="#F4F0E6" />
 
   <meta property="og:type" content="website" />
   <meta property="og:title" content="David Girnstein — UGC Studio" />
-  <meta property="og:description" content="UGC Content, der eure Zielgruppe wirklich trifft. Authentisch — oder mit KI-Avatar." />
+  <meta property="og:description" content="Authentischer UGC-Content, der eure Zielgruppe wirklich trifft." />
   <meta property="og:url" content="https://ugc.girnstein.studio/" />
   <meta property="og:image" content="https://ugc.girnstein.studio/assets/images/og.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -21,6 +21,15 @@
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230B0B0B'/%3E%3Ccircle cx='32' cy='32' r='12' fill='%23CDFF00'/%3E%3C/svg%3E" />
 
   <link rel="stylesheet" href="css/style.css" />
+
+  <!-- ============================================================
+    Feature Flag: KI-Avatar Modus
+    Auf true setzen, sobald der KI-Avatar-Modus verfügbar ist.
+    ============================================================ -->
+  <script>
+    var ENABLE_KI_AVATAR = false;
+    document.documentElement.classList.add(ENABLE_KI_AVATAR ? 'ki-on' : 'ki-off');
+  </script>
 </head>
 
 <body>
@@ -40,8 +49,8 @@
 
     <nav id="primaryNav">
       <ul class="nav-links">
-        <li><a href="#services">Leistungen</a></li>
         <li><a href="#work">Portfolio</a></li>
+        <li><a href="#services">Leistungen</a></li>
         <li><a href="about.html">Über mich</a></li>
         <li><a href="process.html">Prozess</a></li>
         <li class="nav-cta-mobile"><a class="btn btn-primary" href="#contact">Projekt anfragen <span class="arrow">→</span></a></li>
@@ -57,31 +66,47 @@
     <div class="hero-inner">
       <div class="hero-meta">
         <span class="eyebrow">UGC Studio · 2026</span>
-        <span class="mono" style="font-size: 0.8rem; color: var(--muted);">v1.0 — ugc.girnstein.studio</span>
+        <span class="mono" style="font-size: 0.8rem; color: var(--muted);">ugc.girnstein.studio</span>
       </div>
 
-      <h1 class="hero-headline">
-        <span class="word"><span>UGC,</span></span>
-        <span class="word"><span>das eure</span></span><br />
-        <span class="word"><span><em>Zielgruppe</em></span></span><br />
-        <span class="word"><span>wirklich</span></span>
-        <span class="word"><span><span class="accent">trifft.</span></span></span>
-      </h1>
+      <div class="hero-split">
+        <div class="hero-left">
+          <h1 class="hero-headline">
+            <span class="word"><span>UGC,</span></span>
+            <span class="word"><span>das eure</span></span><br />
+            <span class="word"><span><em>Zielgruppe</em></span></span><br />
+            <span class="word"><span>wirklich</span></span>
+            <span class="word"><span><span class="accent">trifft.</span></span></span>
+          </h1>
 
-      <div class="hero-bottom">
-        <p class="hero-sub">
-          Authentischer Content, gedreht von mir — oder mit&nbsp;einem KI-Avatar, der zu eurer Zielgruppe passt. Ein Take, unendliche Varianten.
-        </p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#contact">Projekt anfragen <span class="arrow">→</span></a>
-          <a class="btn btn-ghost" href="#work">Showreel ansehen</a>
+          <div class="hero-bottom">
+            <p class="hero-sub ki-feature-alt">
+              Authentischer UGC-Content, gedreht von mir — hook-optimiert und performance-ready für TikTok, Instagram&nbsp;&amp;&nbsp;YouTube.
+            </p>
+            <p class="hero-sub ki-feature">
+              Authentischer Content, gedreht von mir — oder mit einem KI-Avatar, der zu eurer Zielgruppe passt. Ein Take, unendliche Varianten.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#contact">Projekt anfragen <span class="arrow">→</span></a>
+              <a class="btn btn-ghost" href="#work">Videos ansehen</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-right">
+          <div class="hero-portrait">
+            <!--
+              Freisteller-Foto: Datei als "David_freisteller_01.png" in /assets/images/ ablegen.
+              Das Bild wird automatisch angezeigt sobald die Datei vorhanden ist.
+            -->
+            <img
+              src="assets/images/David_freisteller_01.png"
+              alt="David Girnstein"
+              loading="eager"
+            />
+          </div>
         </div>
       </div>
-    </div>
-
-    <!-- Hero photo strip -->
-    <div class="hero-photo-strip reveal" data-delay="2">
-      <img src="Beispielbilder/IMG_8526.jpeg" alt="David Girnstein" loading="eager" />
     </div>
   </section>
 
@@ -90,28 +115,143 @@
   <div class="marquee" aria-hidden="true">
     <div class="marquee-track">
       <span class="marquee-item">UGC Spots</span>
-      <span class="marquee-item">KI-Avatar Swap</span>
+      <span class="marquee-item ki-feature">KI-Avatar Swap</span>
+      <span class="marquee-item ki-feature-alt">Authentic Content</span>
       <span class="marquee-item">Performance Creatives</span>
       <span class="marquee-item">Hook Tests</span>
-      <span class="marquee-item">Skroll-Stoppers</span>
-      <span class="marquee-item">Variant Engine</span>
+      <span class="marquee-item">Scroll-Stoppers</span>
+      <span class="marquee-item ki-feature">Variant Engine</span>
+      <span class="marquee-item ki-feature-alt">Real Creator</span>
       <!-- duplicated for seamless loop -->
       <span class="marquee-item">UGC Spots</span>
-      <span class="marquee-item">KI-Avatar Swap</span>
+      <span class="marquee-item ki-feature">KI-Avatar Swap</span>
+      <span class="marquee-item ki-feature-alt">Authentic Content</span>
       <span class="marquee-item">Performance Creatives</span>
       <span class="marquee-item">Hook Tests</span>
-      <span class="marquee-item">Skroll-Stoppers</span>
-      <span class="marquee-item">Variant Engine</span>
+      <span class="marquee-item">Scroll-Stoppers</span>
+      <span class="marquee-item ki-feature">Variant Engine</span>
+      <span class="marquee-item ki-feature-alt">Real Creator</span>
     </div>
   </div>
+
+
+  <!-- ============== PORTFOLIO ============== -->
+  <section id="work" class="section" style="background: var(--bg-2);">
+    <div class="container">
+      <div class="section-title">
+        <div class="title-text reveal">
+          <span class="eyebrow" style="margin-bottom: 1rem; display: inline-flex;">01 / Portfolio</span>
+          <h2>Selected<br/>Work.</h2>
+        </div>
+        <p class="title-aside reveal" data-delay="1">
+          Eine Auswahl aktueller UGC-Spots. Klick&nbsp;= Play. Mehr Cases auf Anfrage.
+        </p>
+      </div>
+
+      <!-- Filter chips -->
+      <div class="work-filter reveal" data-delay="1">
+        <button class="chip is-active" data-filter="all">Alle</button>
+        <button class="chip" data-filter="ugc">UGC · David</button>
+        <button class="chip ki-feature" data-filter="avatar">KI-Avatar</button>
+        <button class="chip" data-filter="hook">Hook-Tests</button>
+      </div>
+
+      <div class="work-grid" id="workGrid">
+
+        <!-- Video 1: Skincare -->
+        <article class="work-card reveal" data-cat="ugc" data-yt="YdM6fE8bQ_o">
+          <span class="badge">Skincare · Voiceover</span>
+          <img class="thumb" src="assets/images/work-01.jpeg" alt="Feuchtigkeitscreme — UGC Voiceover" loading="lazy" width="1080" height="1920" />
+          <div class="overlay" aria-hidden="true"></div>
+          <div class="meta">
+            <div>
+              <strong>Feuchtigkeitscreme — UGC Voiceover</strong>
+              <small>UGC · David</small>
+            </div>
+            <div class="play" aria-hidden="true">▶</div>
+          </div>
+        </article>
+
+        <!-- Video 2: Beauty / Parfüm -->
+        <article class="work-card reveal" data-delay="1" data-cat="ugc" data-yt="PeCv6GXr99Y">
+          <span class="badge">Beauty · Voiceover</span>
+          <img class="thumb" src="assets/images/work-02.jpeg" alt="Parfüm — UGC Voiceover" loading="lazy" width="1080" height="1920" />
+          <div class="overlay" aria-hidden="true"></div>
+          <div class="meta">
+            <div>
+              <strong>Parfüm — UGC Voiceover</strong>
+              <small>UGC · David</small>
+            </div>
+            <div class="play" aria-hidden="true">▶</div>
+          </div>
+        </article>
+
+        <!-- Video 3: Tech -->
+        <article class="work-card reveal" data-delay="2" data-cat="ugc" data-yt="KbUX4i_vCnw">
+          <span class="badge">Tech · UGC</span>
+          <img class="thumb" src="assets/images/work-03.jpeg" alt="Mini-Kamera — UGC Spot" loading="lazy" width="1080" height="1920" />
+          <div class="overlay" aria-hidden="true"></div>
+          <div class="meta">
+            <div>
+              <strong>Mini-Kamera — UGC Spot</strong>
+              <small>UGC · David</small>
+            </div>
+            <div class="play" aria-hidden="true">▶</div>
+          </div>
+        </article>
+
+        <!-- Video 4 -->
+        <article class="work-card reveal" data-delay="3" data-cat="ugc" data-yt="lSCPW9u-xY8">
+          <span class="badge">UGC · Spot</span>
+          <img class="thumb" src="assets/images/work-04.jpeg" alt="UGC Spot" loading="lazy" width="1080" height="1920" />
+          <div class="overlay" aria-hidden="true"></div>
+          <div class="meta">
+            <div>
+              <strong>UGC Spot</strong>
+              <small>UGC · David</small>
+            </div>
+            <div class="play" aria-hidden="true">▶</div>
+          </div>
+        </article>
+
+        <!-- KI-Avatar placeholder — wird sichtbar wenn ENABLE_KI_AVATAR = true -->
+        <article class="work-card reveal ki-feature" data-delay="1" data-cat="avatar" hidden>
+          <span class="badge">Avatar · Demo</span>
+          <div class="placeholder">[ KI-Avatar Variant ]</div>
+          <div class="overlay" aria-hidden="true"></div>
+          <div class="meta">
+            <div>
+              <strong>Avatar Demo</strong>
+              <small>KI-Avatar</small>
+            </div>
+            <div class="play" aria-hidden="true">▶</div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
 
 
   <!-- ============== SERVICES ============== -->
   <section id="services" class="section">
     <div class="container">
-      <div class="section-title">
+
+      <!-- Heading: KI OFF -->
+      <div class="section-title ki-feature-alt">
         <div class="title-text reveal">
-          <span class="eyebrow" style="margin-bottom: 1rem; display: inline-flex;">01 / Leistungen</span>
+          <span class="eyebrow" style="margin-bottom: 1rem; display: inline-flex;">02 / Leistungen</span>
+          <h2>Echtes UGC.<br/>Echter Creator.</h2>
+        </div>
+        <p class="title-aside reveal" data-delay="1">
+          Authentischer Content, direkt von mir gedreht — hook-optimiert und performance-ready für eure Kampagnen auf TikTok, Instagram und YouTube.
+        </p>
+      </div>
+
+      <!-- Heading: KI ON -->
+      <div class="section-title ki-feature">
+        <div class="title-text reveal">
+          <span class="eyebrow" style="margin-bottom: 1rem; display: inline-flex;">02 / Leistungen</span>
           <h2>Zwei&nbsp;Modi.<br/>Ein&nbsp;Studio.</h2>
         </div>
         <p class="title-aside reveal" data-delay="1">
@@ -123,18 +263,19 @@
 
         <article class="service-card reveal" data-delay="1">
           <div class="service-art" aria-hidden="true"></div>
-          <span class="service-tag">Mode 01 · Original</span>
+          <span class="service-tag">UGC · Original</span>
           <h3>David, live<br/>vor der Linse.</h3>
-          <p>Echtes UGC: meine Stimme, mein Gesicht, meine Energie. Ideal, wenn ihr authentisch und unverwechselbar wirken wollt — testimonials, hook-driven Reels, Shorts, Demos.</p>
+          <p>Echtes UGC: meine Stimme, mein Gesicht, meine Energie. Ideal, wenn ihr authentisch und unverwechselbar wirken wollt — Testimonials, hook-driven Reels, Shorts, Demos.</p>
           <ul class="service-features">
             <li>Skript-Sparring oder Briefing-Pickup</li>
-            <li>Bis zu 3 Hooks pro Video inklusive</li>
+            <li>Mehrere Hook-Varianten pro Video</li>
             <li>Vertikal · 9:16 · Hi-Res</li>
-            <li>Lieferung 5–7 Tage</li>
+            <li>Preis & Lieferzeit auf Anfrage</li>
           </ul>
         </article>
 
-        <article class="service-card is-featured reveal" data-delay="2">
+        <!-- KI-Avatar Card — wird sichtbar wenn ENABLE_KI_AVATAR = true -->
+        <article class="service-card is-featured reveal ki-feature" data-delay="2">
           <div class="service-art" aria-hidden="true"></div>
           <span class="service-tag">Mode 02 · Avatar Swap</span>
           <h3>Ein Take.<br/>Unendlich Gesichter.</h3>
@@ -151,19 +292,33 @@
 
       <!-- Stats strip -->
       <div class="stats">
-        <div class="stat reveal">
+        <!-- KI OFF stats -->
+        <div class="stat reveal ki-feature-alt">
+          <div class="num">4</div>
+          <div class="label">Videos im Portfolio</div>
+        </div>
+        <!-- KI ON stats -->
+        <div class="stat reveal ki-feature">
           <div class="num">2 <span style="color: var(--lime);">×</span></div>
           <div class="label">Modi: Real & Avatar</div>
         </div>
+
         <div class="stat reveal" data-delay="1">
           <div class="num">9:16</div>
           <div class="label">Native Format</div>
         </div>
         <div class="stat reveal" data-delay="2">
-          <div class="num">5d</div>
-          <div class="label">Avg. Lieferzeit</div>
+          <div class="num">24h</div>
+          <div class="label">Antwortzeit</div>
         </div>
-        <div class="stat reveal" data-delay="3">
+
+        <!-- KI OFF stats -->
+        <div class="stat reveal ki-feature-alt" data-delay="3">
+          <div class="num">Hi&#8209;Res</div>
+          <div class="label">Qualität</div>
+        </div>
+        <!-- KI ON stats -->
+        <div class="stat reveal ki-feature" data-delay="3">
           <div class="num">∞</div>
           <div class="label">Avatar-Varianten</div>
         </div>
@@ -177,121 +332,15 @@
     <div class="container">
       <div class="about-teaser">
         <div class="copy reveal">
-          <span class="eyebrow" style="margin-bottom: 1.25rem; display: inline-flex;">02 / Über mich</span>
-          <h2>Creator, der &amp;<br/>denkt wie&nbsp;ein Marketer.</h2>
-          <p>Ich produziere UGC nicht „aus dem Bauch raus" — ich denke in Hooks, Retention-Kurven und A/B-Tests. Das Ergebnis: Spots, die nicht nur gut aussehen, sondern Skroll-Stops auslösen.</p>
-          <p>Wenn euer Creative-Pipeline schneller, günstiger und vielfältiger werden soll, ohne an Authentizität zu verlieren — lasst uns sprechen.</p>
+          <span class="eyebrow" style="margin-bottom: 1.25rem; display: inline-flex;">03 / Über mich</span>
+          <h2>Creator, der&nbsp;&amp;<br/>denkt wie&nbsp;ein Marketer.</h2>
+          <p>Bevor ich selbst vor die Kamera gegangen bin, habe ich über anderthalb Jahre Videos für Social-Media-Werbung geschnitten — für Agenturen, verschiedenste Kunden und Produkte. Ich weiß, welche Hooks funktionieren, was einen Scroll-Stopper ausmacht und wie man Content für Conversion baut.</p>
+          <p>Heute bringe ich das, was ich damals geschnitten habe, selbst vor die Kamera.</p>
           <a class="btn btn-dark" href="about.html">Mehr über mich <span class="arrow">→</span></a>
         </div>
         <div class="imgwrap reveal" data-delay="2">
-          <img src="Beispielbilder/Balenciaga-10.jpg" alt="David Girnstein Portrait" loading="lazy" />
+          <img src="Beispielbilder/Balenciaga-10.jpg" alt="David Girnstein" loading="lazy" />
         </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ============== PORTFOLIO ============== -->
-  <section id="work" class="section" style="background: var(--bg-2);">
-    <div class="container">
-      <div class="section-title">
-        <div class="title-text reveal">
-          <span class="eyebrow" style="margin-bottom: 1rem; display: inline-flex;">03 / Portfolio</span>
-          <h2>Selected<br/>Work.</h2>
-        </div>
-        <p class="title-aside reveal" data-delay="1">
-          Eine Auswahl aktueller UGC-Spots & Avatar-Variants. Klick = Play. Mehr Cases auf Anfrage.
-        </p>
-      </div>
-
-      <!-- Filter chips -->
-      <div class="work-filter reveal" data-delay="1">
-        <button class="chip is-active" data-filter="all">Alle</button>
-        <button class="chip" data-filter="ugc">UGC · David</button>
-        <button class="chip" data-filter="avatar">KI-Avatar</button>
-        <button class="chip" data-filter="hook">Hook-Tests</button>
-      </div>
-
-      <div class="work-grid" id="workGrid">
-
-        <article class="work-card reveal" data-cat="ugc" data-yt="YdM6fE8bQ_o">
-          <span class="badge">Beauty · Voiceover</span>
-          <img class="thumb" src="assets/images/work-01.jpeg" alt="Parfüm — UGC Voiceover" loading="lazy" width="1080" height="1920" />
-          <div class="overlay" aria-hidden="true"></div>
-          <div class="meta">
-            <div>
-              <strong>Parfüm — UGC Voiceover</strong>
-              <small>UGC · David · 0:20</small>
-            </div>
-            <div class="play" aria-hidden="true">▶</div>
-          </div>
-        </article>
-
-        <article class="work-card reveal" data-delay="1" data-cat="ugc" data-yt="PeCv6GXr99Y">
-          <span class="badge">Skincare · Voiceover</span>
-          <img class="thumb" src="assets/images/work-02.jpeg" alt="Feuchtigkeitscreme — UGC Voiceover" loading="lazy" width="1080" height="1920" />
-          <div class="overlay" aria-hidden="true"></div>
-          <div class="meta">
-            <div>
-              <strong>Feuchtigkeitscreme — UGC Voiceover</strong>
-              <small>UGC · David · 0:18</small>
-            </div>
-            <div class="play" aria-hidden="true">▶</div>
-          </div>
-        </article>
-
-        <article class="work-card reveal" data-delay="2" data-cat="ugc" data-yt="KbUX4i_vCnw">
-          <span class="badge">Tech · UGC</span>
-          <img class="thumb" src="assets/images/work-03.jpeg" alt="Mini-Kamera — UGC Spot" loading="lazy" width="1080" height="1920" />
-          <div class="overlay" aria-hidden="true"></div>
-          <div class="meta">
-            <div>
-              <strong>Mini-Kamera — UGC Spot</strong>
-              <small>UGC · David · 0:30</small>
-            </div>
-            <div class="play" aria-hidden="true">▶</div>
-          </div>
-        </article>
-
-        <article class="work-card reveal" data-cat="hook" hidden>
-          <span class="badge">Hook Lab</span>
-          <div class="placeholder">[ thumb · /assets/images/work-04.jpg ]</div>
-          <div class="overlay" aria-hidden="true"></div>
-          <div class="meta">
-            <div>
-              <strong>5 Hook-Varianten in 60s</strong>
-              <small>Hook · Test · 1:00</small>
-            </div>
-            <div class="play" aria-hidden="true">▶</div>
-          </div>
-        </article>
-
-        <article class="work-card reveal" data-delay="1" data-cat="avatar" hidden>
-          <span class="badge">Avatar · 3 Sprachen</span>
-          <div class="placeholder">[ thumb · /assets/images/work-05.jpg ]</div>
-          <div class="overlay" aria-hidden="true"></div>
-          <div class="meta">
-            <div>
-              <strong>SaaS Demo — Multilingual</strong>
-              <small>KI-Avatar · 0:38</small>
-            </div>
-            <div class="play" aria-hidden="true">▶</div>
-          </div>
-        </article>
-
-        <article class="work-card reveal" data-delay="2" data-cat="ugc" hidden>
-          <span class="badge">Lifestyle</span>
-          <div class="placeholder">[ thumb · /assets/images/work-06.jpg ]</div>
-          <div class="overlay" aria-hidden="true"></div>
-          <div class="meta">
-            <div>
-              <strong>Streetstyle Drop</strong>
-              <small>UGC · David · 0:24</small>
-            </div>
-            <div class="play" aria-hidden="true">▶</div>
-          </div>
-        </article>
-
       </div>
     </div>
   </section>
@@ -306,7 +355,7 @@
           <h2>So&nbsp;läuft's.</h2>
         </div>
         <p class="title-aside reveal" data-delay="1">
-          Vom Briefing bis zur fertigen Variante in 4 sauberen Schritten. Detailliert auf der <a href="process.html" style="text-decoration: underline; text-decoration-color: var(--lime); text-underline-offset: 4px;">Prozess-Seite</a>.
+          Vom Briefing bis zum fertigen Video in 4 sauberen Schritten. Mehr Details auf der <a href="process.html" style="text-decoration: underline; text-decoration-color: var(--lime); text-underline-offset: 4px;">Prozess-Seite</a>.
         </p>
       </div>
 
@@ -314,22 +363,22 @@
         <div class="step reveal">
           <span class="num">01 — Brief</span>
           <h4>Kick-off in 30&nbsp;Min</h4>
-          <p>Wir klären Ziel, Tonalität, Plattform und welcher Modus passt — David live oder Avatar Swap.</p>
+          <p>Wir klären Ziel, Tonalität und Plattform — damit ich direkt loslegen kann.</p>
         </div>
         <div class="step reveal" data-delay="1">
           <span class="num">02 — Skript</span>
           <h4>Hooks &amp; CTA</h4>
-          <p>Ich liefere 2–3 Hook-Varianten und ein abgestimmtes Skript. Ihr gebt grünes Licht.</p>
+          <p>Ich liefere mehrere Hook-Varianten und ein abgestimmtes Skript. Ihr gebt grünes Licht.</p>
         </div>
         <div class="step reveal" data-delay="2">
           <span class="num">03 — Shoot</span>
-          <h4>Single take, mehrfach genutzt</h4>
-          <p>Ich drehe in Hi-Res. Bei Avatar-Swap wird das Material direkt für die Persona-Layer vorbereitet.</p>
+          <h4>Dreh</h4>
+          <p>Ich drehe in Hi-Res, vertikal — nativ optimiert für TikTok, Instagram und YouTube.</p>
         </div>
         <div class="step reveal" data-delay="3">
           <span class="num">04 — Delivery</span>
           <h4>Final + Varianten</h4>
-          <p>Schnitt, Captions, mehrere Cuts. Avatar-Versionen on top — bereit für Meta, TikTok &amp; YouTube.</p>
+          <p>Schnitt, Captions, mehrere Cuts — bereit für Meta, TikTok &amp; YouTube.</p>
         </div>
       </div>
     </div>
@@ -344,26 +393,26 @@
           <span class="eyebrow" style="margin-bottom: 1.5rem; display: inline-flex; color: var(--lime);">05 / Kontakt</span>
           <h2>Lasst uns euer<br/>nächstes <span class="accent">Creative</span> bauen.</h2>
           <p style="font-size: var(--fs-lg); max-width: 56ch; opacity: 0.85; margin-top: 1rem;">
-            Brief, lose Idee oder konkrete Deadline? Schreibt mir. Ich melde mich innerhalb von 24h mit einem ersten Sparring.
+            Brief, lose Idee oder konkrete Deadline? Schreibt mir. Ich melde mich innerhalb von 24h.
           </p>
 
           <div class="cta-row">
-            <a class="btn btn-primary" href="mailto:hello@girnstein.studio?subject=UGC%20Anfrage">E-Mail schreiben <span class="arrow">→</span></a>
-            <a class="btn btn-ghost" style="color: var(--bg); border-color: rgba(255,255,255,0.4);" href="https://cal.com/davidgirnstein" target="_blank" rel="noopener">Call buchen</a>
+            <a class="btn btn-primary" href="mailto:ugc@girnstein.studio?subject=UGC%20Anfrage">E-Mail schreiben <span class="arrow">→</span></a>
+            <a class="btn btn-ghost" style="color: var(--bg); border-color: rgba(255,255,255,0.4);" href="https://instagram.com/david_girnstein" target="_blank" rel="noopener">Instagram</a>
           </div>
 
           <div class="cta-info">
-            <a href="mailto:hello@girnstein.studio">
+            <a href="mailto:ugc@girnstein.studio">
               <div class="label">E-Mail</div>
-              <div class="value">hello@girnstein.studio</div>
+              <div class="value">ugc@girnstein.studio</div>
             </a>
-            <a href="https://instagram.com/davidgirnstein" target="_blank" rel="noopener">
+            <a href="https://instagram.com/david_girnstein" target="_blank" rel="noopener">
               <div class="label">Instagram</div>
-              <div class="value">@davidgirnstein</div>
+              <div class="value">@david_girnstein</div>
             </a>
-            <a href="https://linkedin.com/in/davidgirnstein" target="_blank" rel="noopener">
-              <div class="label">LinkedIn</div>
-              <div class="value">in/davidgirnstein</div>
+            <a href="https://girnstein.studio" target="_blank" rel="noopener">
+              <div class="label">Portfolio</div>
+              <div class="value">girnstein.studio</div>
             </a>
           </div>
         </div>
@@ -387,6 +436,7 @@
           <a href="about.html">Über mich</a>
           <a href="process.html">Prozess</a>
           <a href="#contact">Kontakt</a>
+          <a href="impressum.html">Impressum</a>
         </div>
       </div>
 
@@ -397,8 +447,9 @@
       <div class="footer-bottom">
         <span class="mono">made with care · 2026</span>
         <div class="footer-links">
-          <a href="https://girnstein.com" target="_blank" rel="noopener">girnstein.com</a>
-          <a href="mailto:hello@girnstein.studio">hello@girnstein.studio</a>
+          <a href="https://girnstein.studio" target="_blank" rel="noopener">girnstein.studio</a>
+          <a href="mailto:ugc@girnstein.studio">ugc@girnstein.studio</a>
+          <a href="impressum.html">Impressum</a>
         </div>
       </div>
     </div>

@@ -121,34 +121,12 @@
     });
   }
 
-  /* ---------- 8. Mark hero photo as filled if image actually loads ---------- */
-  const heroImg = document.querySelector(".hero-photo-strip img");
-  if (heroImg) {
-    const apply = () =>
-      heroImg.parentElement.setAttribute(
-        "data-has-image",
-        heroImg.naturalWidth > 0 ? "true" : "false"
-      );
-    if (heroImg.complete) apply();
-    else heroImg.addEventListener("load", apply);
-  }
+  /* ---------- 8. After hero animations finish, remove overflow-clip on words ----------
+     This prevents italic letters from being clipped once the slide-in is done. */
+  setTimeout(() => {
+    document.querySelectorAll(".hero-headline .word").forEach((w) => {
+      w.style.overflow = "visible";
+    });
+  }, 1900);
 
-  /* ---------- 9. Subtle parallax on hero photo ---------- */
-  const heroStrip = document.querySelector(".hero-photo-strip img");
-  if (heroStrip && supportsHover) {
-    let ticking = false;
-    window.addEventListener(
-      "scroll",
-      () => {
-        if (ticking) return;
-        ticking = true;
-        requestAnimationFrame(() => {
-          const y = Math.min(window.scrollY * 0.12, 60);
-          heroStrip.style.transform = `translateY(${y}px) scale(1.02)`;
-          ticking = false;
-        });
-      },
-      { passive: true }
-    );
-  }
 })();
