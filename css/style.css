@@ -1164,8 +1164,8 @@ a.niche-tag-more:hover { background: var(--lime); }
   width: -webkit-max-content;
   width: max-content;          /* Verhindert Browser-Bug: -50% wird sonst gegen Viewport berechnet */
   gap: 14px;
-  -webkit-animation: gallery-scroll 32s linear infinite;
-  animation: gallery-scroll 32s linear infinite;
+  -webkit-animation: gallery-scroll 45s linear infinite;
+  animation: gallery-scroll 45s linear infinite;
   will-change: transform;
 }
 .gallery-marquee:hover .gallery-track {
@@ -1207,8 +1207,8 @@ a.niche-tag-more:hover { background: var(--lime); }
 .gallery-item:hover img { -webkit-transform: scale(1.06); transform: scale(1.06); }
 @media (max-width: 860px) {
   .gallery-track {
-    -webkit-animation-duration: 8s;
-    animation-duration: 8s;
+    -webkit-animation-duration: 15s;
+    animation-duration: 15s;
   }
 }
 @media (prefers-reduced-motion: reduce) {
