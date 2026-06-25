@@ -1207,8 +1207,8 @@ a.niche-tag-more:hover { background: var(--lime); }
 .gallery-item:hover img { -webkit-transform: scale(1.06); transform: scale(1.06); }
 @media (max-width: 860px) {
   .gallery-track {
-    -webkit-animation-duration: 15s;
-    animation-duration: 15s;
+    -webkit-animation-duration: 29s;
+    animation-duration: 29s;
   }
 }
 @media (prefers-reduced-motion: reduce) {
