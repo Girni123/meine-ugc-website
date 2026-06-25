@@ -802,7 +802,7 @@ h3 { font-size: var(--fs-h3); font-weight: 800; letter-spacing: -0.02em; line-he
 /* ---------- 13. About teaser ---------- */
 .about-teaser {
   display: grid;
-  grid-template-columns: 1.1fr 1fr;
+  grid-template-columns: 1fr 1.3fr;
   gap: clamp(1.5rem, 4vw, 4rem);
   align-items: center;
 }
