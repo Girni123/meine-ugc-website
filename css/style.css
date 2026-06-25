@@ -1064,46 +1064,60 @@ a.niche-tag-more:hover { background: var(--lime); }
 .gallery-marquee {
   overflow: hidden;
   width: 100%;
+  display: block;
 }
 .gallery-track {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  gap: clamp(0.6rem, 1.2vw, 1rem);
-  /* width: max-content sorgt dafür dass der Track nie umbricht */
-  width: -webkit-max-content;
-  width: max-content;
-  animation: gallery-scroll 30s linear infinite;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;           /* NIE umbrechen */
+  gap: 14px;
+  -webkit-animation: gallery-scroll 32s linear infinite;
+  animation: gallery-scroll 32s linear infinite;
   will-change: transform;
 }
 .gallery-marquee:hover .gallery-track {
+  -webkit-animation-play-state: paused;
   animation-play-state: paused;
+}
+@-webkit-keyframes gallery-scroll {
+  from { -webkit-transform: translateX(0); transform: translateX(0); }
+  to   { -webkit-transform: translateX(-50%); transform: translateX(-50%); }
 }
 @keyframes gallery-scroll {
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
 }
 .gallery-item {
-  flex: 0 0 auto;
-  /* Explizite Breite + Höhe statt aspect-ratio → Safari-kompatibel */
-  width: clamp(200px, 20vw, 280px);
-  height: clamp(200px, 20vw, 280px);
+  /* Feste Pixel-Größe — kein clamp(), kein aspect-ratio → zuverlässig in Safari + Chrome */
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 260px;
+  flex: 0 0 260px;
+  width: 260px;
+  height: 260px;
   border-radius: var(--r-md);
   overflow: hidden;
   background: var(--bg-2);
+  display: block;
 }
 .gallery-item img {
-  width: 100%;
-  height: 100%;
+  display: block;
+  width: 260px;
+  height: 260px;
   -o-object-fit: cover;
   object-fit: cover;
   -o-object-position: center top;
   object-position: center top;
-  display: block;
+  -webkit-transition: -webkit-transform 0.5s var(--ease-out);
   transition: transform 0.5s var(--ease-out);
 }
-.gallery-item:hover img { transform: scale(1.06); }
-/* Reduced-motion: scroll pausieren */
+.gallery-item:hover img { -webkit-transform: scale(1.06); transform: scale(1.06); }
 @media (prefers-reduced-motion: reduce) {
-  .gallery-track { animation: none; }
+  .gallery-track {
+    -webkit-animation: none;
+    animation: none;
+  }
 }
 
 /* ---------- 22. KI-Avatar Feature Flag ----------
