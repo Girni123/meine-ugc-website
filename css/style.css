@@ -224,10 +224,10 @@ h3 { font-size: var(--fs-h3); font-weight: 800; letter-spacing: -0.02em; line-he
     inset: 0;
     background: var(--bg);
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: flex-end;
-    padding: 0 var(--pad-x);
-    gap: 1rem;
+    padding: 0 var(--pad-x) clamp(3.5rem, 10vh, 6rem);
+    gap: 0.6rem;
     opacity: 0;
     pointer-events: none;
     transform: translateY(-12px);
@@ -235,14 +235,14 @@ h3 { font-size: var(--fs-h3); font-weight: 800; letter-spacing: -0.02em; line-he
     z-index: 90;
   }
   .nav-links a {
-    font-size: clamp(1.75rem, 6vw, 2.5rem);
+    font-size: clamp(2rem, 7vw, 2.8rem);
     font-weight: 800;
     font-family: "Inter Tight", sans-serif;
     letter-spacing: -0.02em;
     text-align: right;
   }
   .nav-open .nav-links { opacity: 1; pointer-events: auto; transform: translateY(0); }
-  .nav-cta-mobile { margin-top: 1rem; }
+  .nav-cta-mobile { margin-top: 1.5rem; }
 }
 
 /* ---------- 6. Buttons ---------- */
@@ -376,7 +376,7 @@ h3 { font-size: var(--fs-h3); font-weight: 800; letter-spacing: -0.02em; line-he
   bottom: 0;
   left: 0;
   right: 0;
-  height: 20px;
+  height: 52px;
   background: var(--lime);
   z-index: 5;
   pointer-events: none;
@@ -1050,14 +1050,6 @@ h3 { font-size: var(--fs-h3); font-weight: 800; letter-spacing: -0.02em; line-he
   .nav-open .site-header {
     background: var(--bg);
     border-bottom-color: var(--line);
-  }
-  /* Nav-Links: Items nach unten schieben — daumenfreundlich erreichbar */
-  .nav-links {
-    justify-content: flex-end;
-  }
-  .nav-open .nav-links {
-    padding-top: 5rem;
-    padding-bottom: clamp(4rem, 12vh, 7rem);
   }
   /* Sicherstellen dass der X-Button über dem Nav-Overlay liegt */
   .nav-open .nav-close {

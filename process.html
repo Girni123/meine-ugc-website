@@ -26,7 +26,9 @@
     <button class="nav-toggle" id="navToggle" aria-label="Navigation öffnen" aria-expanded="false">
       <span></span>
     </button>
-    <nav>
+    <button class="nav-close" id="navClose" aria-label="Navigation schließen">✕</button>
+
+    <nav id="primaryNav">
       <ul class="nav-links">
         <li><a href="index.html#services">Leistungen</a></li>
         <li><a href="index.html#work">Portfolio</a></li>
@@ -37,13 +39,14 @@
     </nav>
   </header>
 
+
   <!-- ============== PAGE HERO ============== -->
   <section class="page-hero">
     <div class="container">
       <span class="eyebrow">Prozess</span>
-      <h1>Vom Brief<br/>zur fertigen <em style="font-weight: 300; font-family: 'Inter Tight', serif;">Variante.</em></h1>
+      <h1>Vom Brief<br/>zum fertigen <em style="font-weight: 300; font-family: 'Inter Tight', serif;">Spot.</em></h1>
       <p class="prose" style="max-width: 56ch;">
-        Vier Schritte. Klare Übergaben. Keine Mystery-Briefings, keine endlosen Feedback-Schleifen. So läuft eine Zusammenarbeit mit dem Studio ab.
+        Vier Schritte. Klare Übergaben. Keine endlosen Feedback-Schleifen. So läuft eine Zusammenarbeit ab — schreibt mir einfach eine E-Mail und wir legen los.
       </p>
     </div>
   </section>
@@ -56,13 +59,11 @@
         <div class="timeline-item reveal">
           <div class="when">01 — Brief</div>
           <div>
-            <h3>Kick-off &amp; Mode-Wahl</h3>
+            <h3>Schreib mir, was ihr braucht</h3>
             <p style="font-size: var(--fs-lg); color: var(--ink-2); max-width: 60ch;">
-              30-Minuten-Call. Wir klären Ziel, Plattform (Meta / TikTok / YouTube Shorts), Tonalität und welcher Modus passt:
-              <strong style="color: var(--ink);">David live</strong> für maximale Authentizität,
-              <strong style="color: var(--ink);">Avatar Swap</strong> wenn ihr verschiedene Personas oder Sprachen testen wollt.
+              Eine E-Mail reicht. Je nachdem was ihr braucht, kläre ich Ziel, Plattform (Meta / TikTok / YouTube Shorts) und Tonalität — der genaue Ablauf richtet sich nach eurem Projekt und Auftrag.
             </p>
-            <p style="margin-top: 0.75rem; font-size: 0.95rem; color: var(--muted);">⏱ Tag 0 · Output: Brief-Doc</p>
+            <p style="margin-top: 0.75rem; font-size: 0.95rem; color: var(--muted);">Output: Brief-Doc</p>
           </div>
         </div>
 
@@ -71,20 +72,20 @@
           <div>
             <h3>Hooks, CTA, Skript-Variants</h3>
             <p style="font-size: var(--fs-lg); color: var(--ink-2); max-width: 60ch;">
-              Innerhalb von 48h liefere ich 2–3 Hook-Varianten, das Hauptskript und CTA-Optionen. Ihr kommentiert direkt in einem geteilten Doc — Standard-Schleife max. 1 Runde.
+              Ich liefere mehrere Hook-Varianten, das Hauptskript und CTA-Optionen. Ihr gebt Feedback — max. eine Korrekturschleife, damit der Prozess schlank bleibt.
             </p>
-            <p style="margin-top: 0.75rem; font-size: 0.95rem; color: var(--muted);">⏱ Tag 1–2 · Output: Skript &amp; Hook-Variants</p>
+            <p style="margin-top: 0.75rem; font-size: 0.95rem; color: var(--muted);">Output: Skript &amp; Hook-Variants</p>
           </div>
         </div>
 
         <div class="timeline-item reveal" data-delay="2">
           <div class="when">03 — Shoot</div>
           <div>
-            <h3>Single take, sauber produziert</h3>
+            <h3>Dreh, sauber produziert</h3>
             <p style="font-size: var(--fs-lg); color: var(--ink-2); max-width: 60ch;">
-              Ich drehe in vertikalem 9:16, Hi-Res, mit sauberem Sound. Bei Avatar-Swap wird das Originalmaterial direkt für die Persona-Layer vorbereitet — keine separaten Drehs, kein Mehraufwand für euch.
+              Ich drehe in vertikalem 9:16, Hi-Res, mit sauberem Sound — nativ optimiert für TikTok, Instagram und YouTube Shorts.
             </p>
-            <p style="margin-top: 0.75rem; font-size: 0.95rem; color: var(--muted);">⏱ Tag 3 · Output: Raw Footage</p>
+            <p style="margin-top: 0.75rem; font-size: 0.95rem; color: var(--muted);">Output: Raw Footage</p>
           </div>
         </div>
 
@@ -93,9 +94,9 @@
           <div>
             <h3>Final + Varianten</h3>
             <p style="font-size: var(--fs-lg); color: var(--ink-2); max-width: 60ch;">
-              Schnitt, Captions (offen oder Burn-in), mehrere Cuts pro Hook. Wenn Avatar-Swap gebucht: zusätzliche Persona-Versions. Lieferung über WeTransfer oder direkt in eurer Drive-Struktur.
+              Schnitt, Captions (offen oder Burn-in), mehrere Cuts pro Hook. Lieferung über WeTransfer oder direkt in eurer Drive-Struktur — je nachdem was für euch passt.
             </p>
-            <p style="margin-top: 0.75rem; font-size: 0.95rem; color: var(--muted);">⏱ Tag 4–6 · Output: Final Cuts &amp; Avatar-Variants</p>
+            <p style="margin-top: 0.75rem; font-size: 0.95rem; color: var(--muted);">Output: Final Cuts &amp; Varianten</p>
           </div>
         </div>
 
@@ -119,19 +120,19 @@
       <div class="prose reveal" style="max-width: none; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
         <div>
           <h3 style="font-family: 'Inter Tight'; font-size: 1.3rem; margin-top: 0;">Was kostet ein Spot?</h3>
-          <p>Pakete starten ab einem klaren Festpreis pro Spot — Avatar-Variants werden separat ausgewiesen. Detaillierte Preise nach Kick-off-Call.</p>
+          <p>Das hängt vom Umfang ab — Anzahl der Hooks, Schnittaufwand und wie viele Varianten ihr braucht. Schreibt mir einfach, was ihr euch vorstellt, und ich mache ein konkretes Angebot.</p>
         </div>
         <div>
-          <h3 style="font-family: 'Inter Tight'; font-size: 1.3rem; margin-top: 0;">Wer wählt den Avatar?</h3>
-          <p>Ihr. Aus einer kuratierten Library, abgestimmt auf eure Zielgruppe. Demografie, Sprache, Vibe — wir matchen das im Briefing.</p>
+          <h3 style="font-family: 'Inter Tight'; font-size: 1.3rem; margin-top: 0;">Wie lange dauert die Umsetzung?</h3>
+          <p>Richtet sich nach Projekt und Auftrag. In der Regel geht es zügig — schreibt mir, wenn ihr eine konkrete Deadline habt, und ich sage euch direkt ob es passt.</p>
         </div>
         <div>
-          <h3 style="font-family: 'Inter Tight'; font-size: 1.3rem; margin-top: 0;">Wie schnell ist „schnell"?</h3>
-          <p>Standard ist 5–7 Tage von Brief bis finaler Variante. Express geht — sprecht es im Brief an.</p>
+          <h3 style="font-family: 'Inter Tight'; font-size: 1.3rem; margin-top: 0;">Kann ich ein eigenes Skript schicken?</h3>
+          <p>Ja, kein Problem. Ich kann euer Skript nehmen, auf Hooks und Plattformlogik optimieren — oder direkt 1:1 umsetzen wenn ihr das bevorzugt.</p>
         </div>
         <div>
-          <h3 style="font-family: 'Inter Tight'; font-size: 1.3rem; margin-top: 0;">Ist Avatar-Swap ehrlich?</h3>
-          <p>Ja. Es bleibt UGC: echte Stimme, echte Mimik, echtes Skript. Der Avatar tauscht nur die visuelle Persona — Substanz bleibt.</p>
+          <h3 style="font-family: 'Inter Tight'; font-size: 1.3rem; margin-top: 0;">Für welche Plattformen produzierst du?</h3>
+          <p>Primär TikTok, Instagram Reels und YouTube Shorts — vertikal 9:16. Format, Schnittrhythmus und Hook-Länge passe ich an die jeweilige Plattform an.</p>
         </div>
       </div>
     </div>
@@ -143,9 +144,9 @@
       <div class="cta reveal">
         <div class="cta-content">
           <span class="eyebrow" style="margin-bottom: 1.5rem; display: inline-flex; color: var(--lime);">Los geht's</span>
-          <h2>Bereit fürs<br/><span class="accent">erste Briefing</span>?</h2>
+          <h2>Einfach eine<br/><span class="accent">E-Mail schreiben.</span></h2>
           <p style="font-size: var(--fs-lg); max-width: 56ch; opacity: 0.85; margin-top: 1rem;">
-            Schreibt mir — ihr kommt mit Brief, ich komme mit Fragen. Am Ende habt ihr einen Plan.
+            Kein Call nötig. Schreibt mir was ihr braucht — ich melde mich innerhalb von 24h mit konkreten nächsten Schritten.
           </p>
           <div class="cta-row">
             <a class="btn btn-primary" href="mailto:ugc@girnstein.studio?subject=UGC%20Anfrage">E-Mail schreiben <span class="arrow">→</span></a>
