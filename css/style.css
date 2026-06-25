@@ -290,7 +290,8 @@ h3 { font-size: var(--fs-h3); font-weight: 800; letter-spacing: -0.02em; line-he
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  overflow: hidden;
+  overflow-x: clip;
+  overflow-y: visible;
 }
 .hero-grid {
   position: absolute; inset: 0; pointer-events: none;
@@ -316,9 +317,9 @@ h3 { font-size: var(--fs-h3); font-weight: 800; letter-spacing: -0.02em; line-he
 .hero-split {
   display: grid;
   grid-template-columns: 65% 35%;
-  align-items: stretch;       /* both columns fill full height */
+  align-items: stretch;
   gap: 0;
-  min-height: clamp(55vh, 72vh, 82vh);
+  min-height: clamp(65vh, 84vh, 92vh);
 }
 .hero-left {
   display: flex;
@@ -362,12 +363,13 @@ h3 { font-size: var(--fs-h3); font-weight: 800; letter-spacing: -0.02em; line-he
 .hero-portrait img {
   position: relative;
   z-index: 1;
-  max-height: clamp(380px, 68vh, 680px);
+  max-height: clamp(520px, 95vh, 960px);
   width: auto;
   max-width: 100%;
   object-fit: contain;
   object-position: bottom center;
   display: block;
+  margin-top: -6rem;
 }
 /* Grüner Balken — NUR so breit wie das Portrait-Element selbst */
 .portrait-bar {
@@ -1029,6 +1031,74 @@ h3 { font-size: var(--fs-h3); font-weight: 800; letter-spacing: -0.02em; line-he
   object-position: bottom center;
   display: block;
   /* Kein Grayscale-Filter — Freistellerbilder farbenfroh zeigen */
+}
+
+/* ---------- 21a. Nischen-Tags (index.html About-Teaser) ---------- */
+.niche-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+.niche-tag-item {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  padding: 0.35rem 0.8rem;
+  border-radius: var(--r-pill);
+  border: 1px solid var(--line-strong);
+  color: var(--ink-2);
+  background: transparent;
+  white-space: nowrap;
+}
+a.niche-tag-more {
+  border-color: var(--lime);
+  color: var(--ink);
+  font-weight: 600;
+  transition: background var(--dur), color var(--dur);
+}
+a.niche-tag-more:hover { background: var(--lime); }
+
+/* ---------- 21. Nischen-Galerie (about.html) ---------- */
+.niches-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: clamp(0.5rem, 1vw, 1rem);
+  margin-top: clamp(2rem, 4vw, 3rem);
+}
+.niche-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+.niche-img-wrap {
+  aspect-ratio: 3 / 4;
+  border-radius: var(--r-md);
+  overflow: hidden;
+  background: var(--bg-2);
+}
+.niche-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  transition: transform 0.5s var(--ease-out);
+}
+.niche-item:hover .niche-img-wrap img { transform: scale(1.04); }
+.niche-label {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-2);
+}
+@media (max-width: 860px) {
+  .niches-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 520px) {
+  .niches-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 /* ---------- 22. KI-Avatar Feature Flag ----------
