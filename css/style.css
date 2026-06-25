@@ -316,7 +316,7 @@ h3 { font-size: var(--fs-h3); font-weight: 800; letter-spacing: -0.02em; line-he
 /* Hero split: text left, portrait right */
 .hero-split {
   display: grid;
-  grid-template-columns: 65% 35%;
+  grid-template-columns: 52% 48%;
   align-items: stretch;
   gap: 0;
   min-height: clamp(65vh, 84vh, 92vh);
@@ -362,9 +362,9 @@ h3 { font-size: var(--fs-h3); font-weight: 800; letter-spacing: -0.02em; line-he
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  height: 100%;
+  height: 115%;
   width: auto;
-  max-width: 110%;
+  max-width: 130%;
   object-fit: contain;
   object-position: bottom center;
   display: block;
@@ -470,6 +470,10 @@ h3 { font-size: var(--fs-h3); font-weight: 800; letter-spacing: -0.02em; line-he
     max-width: none;
   }
   .portrait-bar { height: 10px; }
+  /* Überschrift auf Mobile deutlich größer */
+  .hero-headline {
+    font-size: clamp(2.6rem, 10vw, 4rem);
+  }
 }
 
 /* ---------- 8. Marquee ---------- */
@@ -1047,10 +1051,13 @@ h3 { font-size: var(--fs-h3); font-weight: 800; letter-spacing: -0.02em; line-he
     background: var(--bg);
     border-bottom-color: var(--line);
   }
-  /* Nav-Links: oben Platz für Header lassen, close-Button überlappt nicht */
+  /* Nav-Links: Items nach unten schieben — daumenfreundlich erreichbar */
+  .nav-links {
+    justify-content: flex-end;
+  }
   .nav-open .nav-links {
-    padding-top: 7rem;
-    padding-bottom: 3rem;
+    padding-top: 5rem;
+    padding-bottom: clamp(4rem, 12vh, 7rem);
   }
   /* Sicherstellen dass der X-Button über dem Nav-Overlay liegt */
   .nav-open .nav-close {
@@ -1181,6 +1188,12 @@ a.niche-tag-more:hover { background: var(--lime); }
   transition: transform 0.5s var(--ease-out);
 }
 .gallery-item:hover img { -webkit-transform: scale(1.06); transform: scale(1.06); }
+@media (max-width: 860px) {
+  .gallery-track {
+    -webkit-animation-duration: 16s;
+    animation-duration: 16s;
+  }
+}
 @media (prefers-reduced-motion: reduce) {
   .gallery-track {
     -webkit-animation: none;
