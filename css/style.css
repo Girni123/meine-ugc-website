@@ -261,7 +261,8 @@ h3 { font-size: var(--fs-h3); font-weight: 800; letter-spacing: -0.02em; line-he
   overflow: hidden;
 }
 @media (max-width: 860px) {
-  .btn-primary {
+  /* Nur der Nav-CTA-Button im Hamburger-Menü wird größer */
+  .nav-cta-mobile .btn-primary {
     font-size: 1.15rem;
     padding: 1.3rem 2.8rem;
   }
@@ -376,13 +377,13 @@ h3 { font-size: var(--fs-h3); font-weight: 800; letter-spacing: -0.02em; line-he
   display: block;
   z-index: 1;
 }
-/* Grüner Balken — NUR so breit wie das Portrait-Element selbst */
+/* Grüner Balken — breiter als das Portrait-Element */
 .portrait-bar {
   position: absolute;
   bottom: 0;
-  left: 0;
-  right: 0;
-  height: 52px;
+  left: -3rem;
+  right: -3rem;
+  height: 28px;
   background: var(--lime);
   z-index: 5;
   pointer-events: none;
@@ -1153,6 +1154,8 @@ a.niche-tag-more:hover { background: var(--lime); }
   display: flex;
   -ms-flex-wrap: nowrap;
   flex-wrap: nowrap;           /* NIE umbrechen */
+  width: -webkit-max-content;
+  width: max-content;          /* Verhindert Browser-Bug: -50% wird sonst gegen Viewport berechnet */
   gap: 14px;
   -webkit-animation: gallery-scroll 32s linear infinite;
   animation: gallery-scroll 32s linear infinite;
@@ -1162,13 +1165,14 @@ a.niche-tag-more:hover { background: var(--lime); }
   -webkit-animation-play-state: paused;
   animation-play-state: paused;
 }
+/* 11 Items × 260px + 11 Gaps × 14px = 3014px (exakter Looppunkt) */
 @-webkit-keyframes gallery-scroll {
   from { -webkit-transform: translateX(0); transform: translateX(0); }
-  to   { -webkit-transform: translateX(-50%); transform: translateX(-50%); }
+  to   { -webkit-transform: translateX(-3014px); transform: translateX(-3014px); }
 }
 @keyframes gallery-scroll {
   from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
+  to   { transform: translateX(-3014px); }
 }
 .gallery-item {
   /* Feste Pixel-Größe — kein clamp(), kein aspect-ratio → zuverlässig in Safari + Chrome */
@@ -1196,8 +1200,8 @@ a.niche-tag-more:hover { background: var(--lime); }
 .gallery-item:hover img { -webkit-transform: scale(1.06); transform: scale(1.06); }
 @media (max-width: 860px) {
   .gallery-track {
-    -webkit-animation-duration: 10s;
-    animation-duration: 10s;
+    -webkit-animation-duration: 8s;
+    animation-duration: 8s;
   }
 }
 @media (prefers-reduced-motion: reduce) {
