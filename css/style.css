@@ -109,7 +109,7 @@ h3 { font-size: var(--fs-h3); font-weight: 800; letter-spacing: -0.02em; line-he
 .site-header {
   position: fixed;
   top: 0; left: 0; right: 0;
-  z-index: 100;
+  z-index: 200;
   padding: 1rem var(--pad-x);
   display: flex;
   align-items: center;
@@ -259,6 +259,12 @@ h3 { font-size: var(--fs-h3); font-weight: 800; letter-spacing: -0.02em; line-he
   white-space: nowrap;
   position: relative;
   overflow: hidden;
+}
+@media (max-width: 860px) {
+  .btn-primary {
+    font-size: 1.15rem;
+    padding: 1.3rem 2.8rem;
+  }
 }
 .btn-primary {
   background: var(--lime);
@@ -447,9 +453,7 @@ h3 { font-size: var(--fs-h3); font-weight: 800; letter-spacing: -0.02em; line-he
     order: 1;
   }
   .hero-right {
-    order: 2;
-    height: clamp(260px, 50vw, 400px);
-    overflow: hidden;
+    display: none;
   }
   .hero-portrait {
     position: relative;
@@ -1046,15 +1050,25 @@ h3 { font-size: var(--fs-h3); font-weight: 800; letter-spacing: -0.02em; line-he
 
 /* ---------- Mobile Nav Fix ---------- */
 @media (max-width: 860px) {
+  /* Auf Mobile: backdrop-filter deaktivieren — verursacht Touch-Event-Bugs in Safari/iOS */
+  .site-header.is-scrolled {
+    background: var(--bg);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
   /* Header bekommt soliden Hintergrund wenn Nav offen */
   .nav-open .site-header {
     background: var(--bg);
     border-bottom-color: var(--line);
   }
+  /* Nav-Toggle immer klickbar — expliziter z-index innerhalb des Headers */
+  .nav-toggle, .nav-close {
+    position: relative;
+    z-index: 1;
+  }
   /* Sicherstellen dass der X-Button über dem Nav-Overlay liegt */
   .nav-open .nav-close {
-    position: relative;
-    z-index: 101;
+    z-index: 201;
   }
 }
 
@@ -1182,8 +1196,8 @@ a.niche-tag-more:hover { background: var(--lime); }
 .gallery-item:hover img { -webkit-transform: scale(1.06); transform: scale(1.06); }
 @media (max-width: 860px) {
   .gallery-track {
-    -webkit-animation-duration: 16s;
-    animation-duration: 16s;
+    -webkit-animation-duration: 10s;
+    animation-duration: 10s;
   }
 }
 @media (prefers-reduced-motion: reduce) {
