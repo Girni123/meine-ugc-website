@@ -1060,45 +1060,50 @@ a.niche-tag-more {
 }
 a.niche-tag-more:hover { background: var(--lime); }
 
-/* ---------- 21. Nischen-Galerie (about.html) ---------- */
-.niches-grid {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: clamp(0.5rem, 1vw, 1rem);
-  margin-top: clamp(2rem, 4vw, 3rem);
+/* ---------- 21. Endlos-Galerie Marquee ---------- */
+.gallery-marquee {
+  overflow: hidden;
+  width: 100%;
 }
-.niche-item {
+.gallery-track {
   display: flex;
-  flex-direction: column;
-  gap: 0.65rem;
+  gap: clamp(0.6rem, 1.2vw, 1rem);
+  /* width: max-content sorgt dafür dass der Track nie umbricht */
+  width: -webkit-max-content;
+  width: max-content;
+  animation: gallery-scroll 30s linear infinite;
+  will-change: transform;
 }
-.niche-img-wrap {
-  aspect-ratio: 3 / 4;
+.gallery-marquee:hover .gallery-track {
+  animation-play-state: paused;
+}
+@keyframes gallery-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.gallery-item {
+  flex: 0 0 auto;
+  /* Explizite Breite + Höhe statt aspect-ratio → Safari-kompatibel */
+  width: clamp(200px, 20vw, 280px);
+  height: clamp(200px, 20vw, 280px);
   border-radius: var(--r-md);
   overflow: hidden;
   background: var(--bg-2);
 }
-.niche-img-wrap img {
+.gallery-item img {
   width: 100%;
   height: 100%;
+  -o-object-fit: cover;
   object-fit: cover;
+  -o-object-position: center top;
   object-position: center top;
   display: block;
   transition: transform 0.5s var(--ease-out);
 }
-.niche-item:hover .niche-img-wrap img { transform: scale(1.04); }
-.niche-label {
-  font-family: "JetBrains Mono", monospace;
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--ink-2);
-}
-@media (max-width: 860px) {
-  .niches-grid { grid-template-columns: repeat(3, 1fr); }
-}
-@media (max-width: 520px) {
-  .niches-grid { grid-template-columns: repeat(2, 1fr); }
+.gallery-item:hover img { transform: scale(1.06); }
+/* Reduced-motion: scroll pausieren */
+@media (prefers-reduced-motion: reduce) {
+  .gallery-track { animation: none; }
 }
 
 /* ---------- 22. KI-Avatar Feature Flag ----------
