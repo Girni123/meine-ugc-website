@@ -14,6 +14,20 @@
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230B0B0B'/%3E%3Ccircle cx='32' cy='32' r='12' fill='%23CDFF00'/%3E%3C/svg%3E" />
 
   <link rel="stylesheet" href="css/style.css" />
+<!-- gs-network-style:start -->
+<style id="gs-network-style">
+  .gs-net{--gs-accent:#9DBF00;--gs-line:color-mix(in srgb,currentColor 14%,transparent);font:inherit;color:inherit;border-top:1px solid var(--gs-line);margin-top:clamp(28px,4vw,48px);padding-top:clamp(20px,3vw,28px);text-align:left}
+  .gs-net__label{display:flex;align-items:center;gap:.55em;margin:0 0 16px;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;opacity:.6}
+  .gs-net__dot{width:7px;height:7px;border-radius:50%;background:var(--gs-accent,currentColor);flex:none}
+  .gs-net__list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px 24px}
+  .gs-net__item a,.gs-net__item span.gs-net__cur{display:block;color:inherit;text-decoration:none;padding:2px 0}
+  .gs-net__name{display:block;font-size:14px;font-weight:600;line-height:1.3}
+  .gs-net__desc{display:block;font-size:12px;line-height:1.4;opacity:.6;margin-top:2px}
+  .gs-net__item a:hover .gs-net__name,.gs-net__item a:focus-visible .gs-net__name{text-decoration:underline;text-decoration-color:var(--gs-accent,currentColor);text-decoration-thickness:2px;text-underline-offset:3px}
+  .gs-net__cur{opacity:.45}
+  @media (max-width:640px){.gs-net__list{grid-template-columns:repeat(2,minmax(0,1fr))}}
+</style>
+<!-- gs-network-style:end -->
 </head>
 
 <body>
@@ -135,7 +149,18 @@
           <a href="mailto:ugc@girnstein.studio">ugc@girnstein.studio</a>
         </div>
       </div>
-    </div>
+    <!-- gs-network:start -->
+  <div class="gs-net" role="navigation" aria-label="Mehr von David Girnstein">
+    <p class="gs-net__label"><span class="gs-net__dot" aria-hidden="true"></span>Mehr von David Girnstein</p>
+    <ul class="gs-net__list">
+      <li class="gs-net__item"><a href="https://girnstein.studio/"><span class="gs-net__name">girnstein.studio</span><span class="gs-net__desc">Übersicht</span></a></li>
+      <li class="gs-net__item"><a href="https://cv.girnstein.studio/"><span class="gs-net__name">CV</span><span class="gs-net__desc">Lebenslauf &amp; Erfahrung</span></a></li>
+      <li class="gs-net__item"><span class="gs-net__cur" aria-current="page"><span class="gs-net__name">UGC Studio</span><span class="gs-net__desc">Du bist hier</span></span></li>
+      <li class="gs-net__item"><a href="https://office-shrimp.girnstein.studio/"><span class="gs-net__name">Office Shrimp</span><span class="gs-net__desc">macOS-App</span></a></li>
+    </ul>
+  </div>
+<!-- gs-network:end -->
+</div>
   </footer>
 
   <script src="js/main.js" defer></script>
